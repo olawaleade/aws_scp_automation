@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "DenyCreateOrUpdateTrailWithoutLogFileValidation",
+        "Effect": "Deny",
+        "Action": [
+          "cloudtrail:CreateTrail",
+          "cloudtrail:UpdateTrail"
+        ],
+        "Resource": "*",
+        "Condition": {
+          "BoolIfExists": {
+            "cloudtrail:EnableLogFileValidation": "false"
+          }
+        }
+      }
+    ]
+  }

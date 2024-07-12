@@ -1,0 +1,37 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "DenyAllExceptListedIfNoMFA",
+        "Effect": "Deny",
+        "NotAction": [
+          "iam:CreateVirtualMFADevice",
+          "iam:EnableMFADevice",
+          "iam:GetAccountSummary",
+          "iam:ListAccountAliases",
+          "iam:ListVirtualMFADevices",
+          "sts:GetSessionToken"
+        ],
+        "Resource": "*",
+        "Condition": {
+          "BoolIfExists": {
+            "aws:MultiFactorAuthPresent": "false"
+          }
+        }
+      },
+      {
+        "Sid": "DenyRootUnlessMFA",
+        "Effect": "Deny",
+        "Action": "*",
+        "Resource": "*",
+        "Condition": {
+          "StringEquals": {
+            "aws:PrincipalType": "Account"
+          },
+          "BoolIfExists": {
+            "aws:MultiFactorAuthPresent": "false"
+          }
+        }
+      }
+    ]
+  }
