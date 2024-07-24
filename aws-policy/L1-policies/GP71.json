@@ -10,9 +10,14 @@
           "s3:DeleteObjectVersion"
         ],
         "Resource": [
-          "arn:aws:s3:::your-log-archive-bucket-name",
-          "arn:aws:s3:::your-log-archive-bucket-name/*"
-        ]
+          "arn:aws:s3:::aws-cloudtrail-logs-767398124675",
+          "arn:aws:s3:::aws-cloudtrail-logs-767398124675/*"
+        ],
+        "Condition": {
+          "StringEquals": {
+            "aws:RequestTag/ccoe": "true"
+          }
+        }
       }
     ]
   }
