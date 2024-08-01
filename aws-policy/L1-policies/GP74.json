@@ -2,28 +2,15 @@
     "Version": "2012-10-17",
     "Statement": [
       {
-        "Sid": "AllowCloudTrailManagement",
-        "Effect": "Allow",
-        "Action": [
-          "cloudtrail:CreateTrail",
-          "cloudtrail:UpdateTrail",
-          "cloudtrail:StartLogging"
-        ],
-        "Resource": "arn:aws:cloudtrail:ap-northeast-1:909424460760:trail/ccoe-cloudtrail-logs",
-        "Condition": {
-        "StringEquals": {
-          "aws:ResourceTag/ccoe": "true"
-        }
-      }
-      },
-      {
-        "Sid": "DenydisableAWSCloudTrail",
+        "Sid": "AWSCloudTrailManagement",
         "Effect": "Deny",
         "Action": [
           "cloudtrail:StopLogging",
-          "cloudtrail:DeleteTrail"
+          "cloudtrail:DeleteTrail",
+          "cloudtrail:PutEventSelectors",
+          "cloudtrail:UpdateTrail"
         ],
-        "Resource": "arn:aws:cloudtrail:ap-northeast-1:909424460760:trail/ccoe-cloudtrail-logs",
+        "Resource": "*",
         "Condition": {
         "StringEquals": {
           "aws:ResourceTag/ccoe": "true"
