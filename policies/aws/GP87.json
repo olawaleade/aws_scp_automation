@@ -6,7 +6,7 @@
         "Action": [
           "iam:CreateAccessKey"
         ],
-        "Resource": "arn:aws:iam::*:user/root"
+        "Resource": "arn:aws:iam::*:root"
       }
     ]
   }
