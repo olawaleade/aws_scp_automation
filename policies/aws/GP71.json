@@ -1,20 +1,15 @@
 {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Sid": "DenyDeleteActionsOnLogArchives",
-        "Effect": "Deny",
-        "Action": [
-          "s3:DeleteBucket",
-          "s3:DeleteObject",
-          "s3:DeleteObjectVersion"
-        ],
-        "Resource": "*",
-        "Condition": {
-          "StringEquals": {
-            "aws:RequestTag/ccoe": "true"
-          }
-        }
-      }
-    ]
-  }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyDeleteActionsOnLogArchives",
+      "Effect": "Deny",
+      "Action": [
+        "s3:DeleteBucket",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+      ],
+      "Resource": "arn:aws:s3:::my-ccoe-test-bucket"
+    }
+  ]
+}

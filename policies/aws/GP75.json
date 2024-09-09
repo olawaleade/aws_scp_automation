@@ -1,19 +1,16 @@
-{
+  {
     "Version": "2012-10-17",
     "Statement": [
-      {
-        "Sid": "DenyCreateOrUpdateTrailWithoutLogFileValidation",
-        "Effect": "Deny",
-        "Action": [
-          "cloudtrail:CreateTrail",
-          "cloudtrail:UpdateTrail"
-        ],
-        "Resource": "*",
-        "Condition": {
-          "BoolIfExists": {
-            "cloudtrail:EnableLogFileValidation": "false"
+        {
+            "Sid": "EnableLogFileIntegrityValidation",
+            "Effect": "Deny",
+            "Action": [
+                "cloudtrail:DeleteTrail",
+                "cloudtrail:PutEventSelectors",
+                "cloudtrail:StopLogging",
+                "cloudtrail:UpdateTrail"
+            ],
+            "Resource": "arn:aws:cloudtrail:*:*:trail/aws-cloudtrail"
           }
-        }
-      }
     ]
-  }
+}
