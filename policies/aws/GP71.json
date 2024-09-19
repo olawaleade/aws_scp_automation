@@ -9,7 +9,10 @@
         "s3:DeleteObject",
         "s3:DeleteObjectVersion"
       ],
-      "Resource": "arn:aws:s3:::my-ccoe-test-bucket"
+      "Resource": [
+        "arn:aws:s3:::my-ccoe-test-bucket",
+        "arn:aws:s3:::my-ccoe-test-bucket/*"
+      ]
     }
   ]
 }
