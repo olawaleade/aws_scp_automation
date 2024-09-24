@@ -12,5 +12,7 @@
         ],
         "Resource": "arn:aws:cloudtrail:ap-northeast-1:194107711752:trail/my-ccoe-test-trail"
       }
+      
     ]
+    
   }
