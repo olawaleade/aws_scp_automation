@@ -100,7 +100,7 @@ def delete_config_recorder():
         error_message = e.response['Error']['Message']
         if error_code == 'AccessDeniedException' or "explicit deny in a service control policy" in error_message:
             print("Denied to delete configuration recorder. Error: Access Denied")
-            return "Denied"
+            return "Denied to delete configuration recorder. Error: Access Denied"
         else:
              print(f"An error occurred: {error_message}")
              return f"An error occurred: {error_message}"

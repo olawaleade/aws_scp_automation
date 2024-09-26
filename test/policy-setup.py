@@ -3,11 +3,11 @@ import json
 import os
 
 # Initialize a session using Amazon Organizations
-#client = boto3.client('organizations')
+client = boto3.client('organizations')
 
 # Initialize a session using the admin profile
-session = boto3.Session(profile_name='admin')
-client = session.client('organizations')
+#session = boto3.Session(profile_name='admin')
+#client = session.client('organizations')
 
 # Define the path to the policies folder
 policies_folder_path = os.path.join(os.path.dirname(__file__), '../policies/aws')

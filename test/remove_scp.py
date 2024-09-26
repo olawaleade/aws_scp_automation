@@ -1,11 +1,11 @@
 import boto3
 
 # Initialize a session using Amazon Organizations
-#client = boto3.client('organizations')
+client = boto3.client('organizations')
 
 # Initialize a session using the admin profile
-session = boto3.Session(profile_name='admin')
-client = session.client('organizations')
+#session = boto3.Session(profile_name='admin')
+#client = session.client('organizations')
 
 # The ID of the root OU
 root_ou_id = 'ou-8p2j-dm62c9gv'
