@@ -10,7 +10,7 @@
                 "cloudtrail:StopLogging",
                 "cloudtrail:UpdateTrail"
             ],
-            "Resource": "arn:aws:cloudtrail:ap-northeast-1:194107711752:trail/my-ccoe-test-trail"
+            "Resource": "arn:aws:cloudtrail:region:acct-id:trail/trail-name"
           }
     ]
 }
