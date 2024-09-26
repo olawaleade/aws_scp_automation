@@ -10,7 +10,9 @@ client = boto3.client('organizations')
 #client = session.client('organizations')
 
 # Define the path to the policies folder
-policies_folder_path = os.path.join(os.path.dirname(__file__), '../policies/aws')
+current_dir = os.path.dirname(os.path.abspath(__file__))
+policies_folder_path = os.path.join(current_dir, '../policies/aws')
+#policies_folder_path = os.path.join(os.path.dirname(__file__), '../policies/aws')
 
 # Define the OU IDs
 root_ou_id = 'ou-8p2j-dm62c9gv'
