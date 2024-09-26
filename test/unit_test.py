@@ -26,5 +26,5 @@ def test_delete_config_recorder():
     assert result == "Denied to delete configuration recorder. Error: Access Denied"
 
 if __name__ == "__main__":
-    pytest.main()
+    pytest.main(["--json-report", "--json-report-file=report.json"])
 
