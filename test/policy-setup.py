@@ -14,8 +14,8 @@ policies_folder_path = os.path.join(os.path.dirname(__file__), '../policies/aws'
 
 
 # Define the OU IDs
-root_ou_id = 'ou-8p2j-dm62c9gv'
-compliant_ou_id = 'ou-8p2j-h9va4zd1'
+root_ou_id = 'root-ou-id'
+compliant_ou_id = 'compliant-ou-id'
 
 # Policies to be attached to the root OU
 root_policies = ['gp87.json', 'gp80.json', 'gp64.json']
