@@ -8,8 +8,8 @@ client = boto3.client('organizations')
 #client = session.client('organizations')
 
 # The ID of the root OU
-root_ou_id = 'ou-8p2j-dm62c9gv'
-compliant_ou_id = 'ou-8p2j-h9va4zd1'
+root_ou_id = 'root-ou-id'
+compliant_ou_id = 'compliant-ou-id'
 
 # Policies to be attached to the root OU
 root_policies = ['gp87', 'gp80', 'gp64']
