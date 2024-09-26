@@ -56,7 +56,7 @@ def delete_s3_bucket():
     client = boto3.client('s3')
     try:
         response = client.delete_bucket(
-            Bucket='my-ccoe-test-bucket'
+            Bucket='bucket-name'
         )
         print("Allowed to delete S3 bucket.")
         return "Allowed"
@@ -73,7 +73,7 @@ def stop_cloudtrail_logging():
     client = boto3.client('cloudtrail')
     try:
         response = client.stop_logging(
-            Name='my-ccoe-test-trail'
+            Name='trail-name'
         )
         print("Allowed to stop CloudTrail logging.")
         return "Allowed"
