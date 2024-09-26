@@ -18,6 +18,9 @@ policies_folder_path = os.path.join(current_dir, '../policies/aws')
 print(f"Current directory: {current_dir}")
 print(f"Policies folder path: {policies_folder_path}")
 
+# List the contents of the policies folder for debugging
+print(f"Contents of policies folder: {os.listdir(policies_folder_path)}")
+
 # Define the OU IDs
 root_ou_id = 'ou-8p2j-dm62c9gv'
 compliant_ou_id = 'ou-8p2j-h9va4zd1'
