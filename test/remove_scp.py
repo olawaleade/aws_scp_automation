@@ -1,21 +1,18 @@
 import boto3
+import os
+import configparser
+import json
 
 # Initialize a session using Amazon Organizations
 client = boto3.client('organizations')
 
-# Initialize a session using the admin profile
-#session = boto3.Session(profile_name='admin')
-#client = session.client('organizations')
+# Read configuration from config.ini
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), 'config.ini'))
 
-# The ID of the root OU
-root_ou_id = 'root-ou-id'
-compliant_ou_id = 'compliant-ou-id'
+# Read and parse the policy dictionary from the config file
+policy_dict = json.loads(config['SCOPES']['policy_dict'])
 
-# Policies to be attached to the root OU
-root_policies = ['gp87', 'gp80', 'gp64']
-
-# Policies to be attached to the compliant OU
-compliant_policies = ['gp61', 'gp63', 'gp71', 'gp74']
 
 # Function to detach and delete policies
 def detach_and_delete_policy(policy_id, target_ou_id):
@@ -43,10 +40,9 @@ def list_and_detach_policies(target_ou_id, policy_names):
             if policy_name in policy_names:
                 detach_and_delete_policy(policy_id, target_ou_id)
 
-# Detach and delete policies from the root OU
-list_and_detach_policies(root_ou_id, root_policies)
-
-# Detach and delete policies from the child OU
-list_and_detach_policies(compliant_ou_id, compliant_policies)
+# Iterate over each OU and its associated policies
+for ou_id, policies in policy_dict.items():
+    policy_names = [policy.split('.')[0] for policy in policies if policy]
+    list_and_detach_policies(ou_id, policy_names)
 
 print("All specified policies have been detached and deleted.")
